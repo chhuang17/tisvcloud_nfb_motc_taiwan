@@ -59,7 +59,7 @@ cms.download(20230203, 15, 0)
 ### ETC Data
 In version 0.1.0, this package provides users to get data detected by ETC gantries on freeways.
 
-**Note that the code '31' means the passenger , '32' means the small truck, '41' means the bus, '42' means the big truck, and '5' means the connected truck.**
+**Note that the code '31' means the passenger car, '32' means the small truck, '41' means the bus, '42' means the big truck, and '5' means the connected truck.**
 
 #### 1. Volume detected by each ETC gantry
 You can get the volume detected by each gantry through the code shown below, and it would return a dictionary for the volume in each vehicle type:
@@ -105,8 +105,7 @@ etc.odPair("03F0447S", "03F0498S", 20230518, 22, 0)
 ```
 
 #### 7. Download ETC Data
-You can also just download the ETC data by calling the `download` function and inputting the name of the ETC dataset, date, and time you desire:
-**Note: The name of the ETC dataset includes M03A, M04A, M05A, M06A, M07A, and M08A**
+You can also just download the ETC data by calling the `download` function and inputting the name of the ETC dataset, date, and time you desire (**Note: The name of the ETC dataset includes M03A, M04A, M05A, M06A, M07A, and M08A**):
 ```python
 etc.download("M03A", 20230519, 22, 0)
 ```
