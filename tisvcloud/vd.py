@@ -45,7 +45,7 @@ __version__ = "0.1.0"
 
 
 
-def download(VDID, date, hour, minute):
+def download(date, hour, minute):
     vdlive = MOTCLiveData(date, hour, minute, dataname="VD")
     vdlive.download()
     if vdlive.empty():
