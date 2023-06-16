@@ -4,9 +4,13 @@ This is a convenient Python package for people who would like to download traffi
 from https://tisvcloud.freeway.gov.tw/ (交通部高速公路局「交通資料庫」).
 
 ### Vehicle Detector (VD) Data
-In version 0.1.0, this package provides users to check the vehicle detector (VD) one-minute data, 
-including volume, speed, and occupancy. 
-All you have to do is inputting the VDID you are interested in, which date you want to check, and what time.
+> **Note**<br>
+> __Version 0.1.1 (Update on 2023-06-02)__ <br>
+> In version 0.1.1, we have:
+> * Fixed the bug of ZeroDivisionError.
+> * Added some new functions:
+>   - You can get multiple VD Data (including volume, speed, and occupancy) at once.
+>   - You can use the `multiple_volume()` to get the volume for each vehicle type by setting the parameter `vehType`.
 
 #### 1. Check the volume for each VD
 If you want to check the volume detected at 08:20, May 15, 2023, by VD-N3-S-44.985-M-LOOP, 
