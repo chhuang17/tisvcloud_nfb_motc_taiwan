@@ -76,19 +76,17 @@ class TDCSData(TisvDownload):
         
             # 年代久遠的資料會壓縮成tar.gz檔
             r = requests.get(f"{self.download_url}/{self.dataname}_{self.date}.tar.gz")
-            tarfile_path = f"{self.dataname}_{self.date}.tar.gz"
+            tarfile_path = f"{self.folder}{self.dataname}_{self.date}.tar.gz"
             with open(tarfile_path, "wb") as f:
                 f.write(r.content)
                 f.close()
 
             # 解壓縮後把壓縮檔移除
-            with tarfile.open(f"{self.dataname}_{self.date}.tar.gz") as f:
-                f.extractall()
-            os.remove(f"{self.dataname}_{self.date}.tar.gz")
+            with tarfile.open(f"{self.folder}{self.dataname}_{self.date}.tar.gz") as f:
+                f.extractall(path=self.folder)
+            os.remove(f"{self.folder}{self.dataname}_{self.date}.tar.gz")
 
-            # 取得相關資料
-            df = pd.read_csv(f"{self.dataname}/{self.date}/{self.hour}/TDCS_{self.dataname}_{self.date}_{self.hour}{self.minute}00.csv")
-            df.to_csv(f"TDCS_{self.dataname}_{self.date}_{self.hour}{self.minute}00.csv", index=False)
+            self.filename = f"{self.folder}{self.dataname}/{self.date}/{self.hour}/TDCS_{self.dataname}_{self.date}_{self.hour}{self.minute}00.csv"
 
     def delete(self):
         shutil.rmtree(self.folder)
